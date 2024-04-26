@@ -27,8 +27,8 @@ arrowLeft.addEventListener("click", clickLeft);
 // Left click scroll function ∞
 function clickLeft() {
 	currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+	updateSlide(currentSlideIndex)
 	console.log("click arrow Left");
-	
 }
 
 // Arrow Right : sélection 👉 in HTML & add "click"
@@ -38,13 +38,12 @@ arrowRight.addEventListener("click", clickRight);
 // Right click scroll function ∞
 function clickRight() {
 	currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+	updateSlide(currentSlideIndex)
 	console.log("click arrow Right");
-	
 }
 
 // Bullet
 const dotsContainer = document.querySelector(".dots")
-
 // Add bullet Slide
 slides.forEach((slide, index) => {
 	const dot = document.createElement("div")
@@ -68,7 +67,7 @@ function updateSlide(index) {
 	// Selection of the bannerImg class to store it in the bannerImg variable
 	const bannerImg = document.querySelector(".banner-img")
 	// Selection of the tagLine class to store it in the tagLine variable
-	const tagLine = document.querySelector(".tagline")
+	const tagLine = document.querySelector("#banner p")
 
 	currentSlideIndex = index
 	// Define path banner img in Slides table for current Index
@@ -86,3 +85,4 @@ function updateSlide(index) {
 		}
 	})
 }
+updateSlide(currentSlideIndex)
